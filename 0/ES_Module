@@ -1,0 +1,17 @@
+For example, this is a CommonJS module that exports two functions:
+
+module.exports.add = function(a, b) {
+        return a + b;
+} 
+module.exports.subtract = function(a, b) {
+        return a - b;
+} 
+
+******************************************************************************************************
+For example, here’s a simple ES module (with an .mjs extension) exporting two functions for public use:
+export function add(a, b) {
+        return a + b;
+}
+export function subtract(a, b) {
+        return a - b;
+}
