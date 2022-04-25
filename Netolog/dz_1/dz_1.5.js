@@ -1,7 +1,13 @@
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const argv = yargs(hideBin(process.argv)).argv
+
 const http = require('http');
 const settings = require('./node_modules/settings.js');
 const myApiKey = settings.myApiKey;
-const url = 'http://api.weatherstack.com/current?access_key=' + myApiKey + '&query=Moscow';
+const city = argv.city;
+
+const url = 'http://api.weatherstack.com/current?access_key=' + myApiKey + '&query=' + city;
 //console.log(myApiKey);
 //console.log(url);
 
