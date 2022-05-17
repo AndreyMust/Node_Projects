@@ -1,0 +1,83 @@
+$ ls
+app         dev         home        mnt         root        srv         usr
+bin         docker.log  lib         opt         run         sys         var
+certs       etc         media       proc        sbin        tmp
+[node1] (local) root@192.168.0.8 /
+
+$ cd app
+[node1] (local) root@192.168.0.8 /app
+$ ls
+a1.txt  a2.txt
+[node1] (local) root@192.168.0.8 /app
+
+
+$ docker run -it -v /app:/app_node1 alpine sh
+/ # ls
+app_node1  dev        home       media      opt        root       sbin       sys        usr
+bin        etc        lib        mnt        proc       run        srv        tmp        var
+/ # cd app_node1
+/app_node1 # ls
+a1.txt  a2.txt
+
+$ ls
+app         dev         home        mnt         root        srv         usr
+bin         docker.log  lib         opt         run         sys         var
+certs       etc         media       proc        sbin        tmp
+[node1] (local) root@192.168.0.8 /
+
+$ docker run -it -v /app:/app_node2 alpine sh
+/ # ls
+app_node2  dev        home       media      opt        root       sbin       sys        usr
+bin        etc        lib        mnt        proc       run        srv        tmp        var
+/ #
+
+ # cd app_node2
+/app_node2 # ls
+a1.txt  a2.txt
+/app_node2 #
+
+/app_node2 # echo 'a3' > a3.txt
+/app_node2 # ls
+a1.txt  a2.txt  a3.txt
+
+/app_node2 # exit
+[node1] (local) root@192.168.0.8 /
+$ ls
+app         dev         home        mnt         root        srv         usr
+bin         docker.log  lib         opt         run         sys         var
+certs       etc         media       proc        sbin        tmp
+[node1] (local) root@192.168.0.8 /
+
+[node1] (local) root@192.168.0.8 /
+$ cd app
+[node1] (local) root@192.168.0.8 /app
+$ ls
+a1.txt  a2.txt  a3.txt
+[node1] (local) root@192.168.0.8 /app
+
+
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                          PORTS     NAMES
+78f43b5695c3   alpine    "sh"      2 minutes ago    Exited (0) About a minute ago             wonderful_fermi
+26875b5bcbd8   alpine    "sh"      4 minutes ago    Exited (0) 3 minutes ago                  exciting_chatterjee
+660255bd3040   alpine    "sh"      22 minutes ago   Exited (0) 15 minutes ago                 cool_shockley
+6b01a4596aa3   alpine    "sh"      24 minutes ago   Exited (0) 23 minutes ago                 interesting_cori
+[node1] (local) root@192.168.0.8 /app
+
+
+$ docker rm 26875b5bcbd8
+26875b5bcbd8
+[node1] (local) root@192.168.0.8 /app
+
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[node1] (local) root@192.168.0.8 /app
+
+$ docker rmi alpine
+
+$ docker rmi alpine
+Untagged: alpine:latest
+Untagged: alpine@sha256:4edbd2beb5f78b1014028f4fbb99f3237d9561100b6881aabbf5acce2c4f9454
+Deleted: sha256:0ac33e5f5afa79e084075e8698a22d574816eea8d7b7d480586835657c3e1c8b
+Deleted: sha256:4fc242d58285699eca05db3cc7c7122a2b8e014d9481f323bd9277baacfa0628
+[node1] (local) root@192.168.0.8 /app

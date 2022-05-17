@@ -1,0 +1,104 @@
+docker pull busybox
+
+Using default tag: latest
+latest: Pulling from library/busybox
+50e8d59317eb: Pull complete 
+Digest: sha256:d2b53584f580310186df7a2055ce3ff83cc0df6caacf1e3489bff8cf5d0af5d8
+Status: Downloaded newer image for busybox:latest
+
+docker run --name pinger busybox ping -c 7 netology.ru
+
+docker run --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=56 time=5.679 ms
+64 bytes from 104.22.41.171: seq=1 ttl=56 time=5.757 ms
+64 bytes from 104.22.41.171: seq=2 ttl=56 time=5.878 ms
+64 bytes from 104.22.41.171: seq=3 ttl=56 time=6.000 ms
+64 bytes from 104.22.41.171: seq=4 ttl=56 time=5.876 ms
+64 bytes from 104.22.41.171: seq=5 ttl=56 time=6.092 ms
+64 bytes from 104.22.41.171: seq=6 ttl=56 time=5.905 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 5.679/5.883/6.092 ms
+
+docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
+054436b8e42c        busybox             "ping -c 7 netology.…"   2 minutes ago       Exited (0) 2 minutes ago                       pinger
+
+
+docker logs pinger
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=56 time=5.679 ms
+64 bytes from 104.22.41.171: seq=1 ttl=56 time=5.757 ms
+64 bytes from 104.22.41.171: seq=2 ttl=56 time=5.878 ms
+64 bytes from 104.22.41.171: seq=3 ttl=56 time=6.000 ms
+64 bytes from 104.22.41.171: seq=4 ttl=56 time=5.876 ms
+64 bytes from 104.22.41.171: seq=5 ttl=56 time=6.092 ms
+64 bytes from 104.22.41.171: seq=6 ttl=56 time=5.905 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 5.679/5.883/6.092 ms
+
+
+$ docker start pinger
+pinger
+
+
+$ docker logs pinger
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=56 time=5.679 ms
+64 bytes from 104.22.41.171: seq=1 ttl=56 time=5.757 ms
+64 bytes from 104.22.41.171: seq=2 ttl=56 time=5.878 ms
+64 bytes from 104.22.41.171: seq=3 ttl=56 time=6.000 ms
+64 bytes from 104.22.41.171: seq=4 ttl=56 time=5.876 ms
+64 bytes from 104.22.41.171: seq=5 ttl=56 time=6.092 ms
+64 bytes from 104.22.41.171: seq=6 ttl=56 time=5.905 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 5.679/5.883/6.092 ms
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=56 time=5.639 ms
+64 bytes from 104.22.41.171: seq=1 ttl=56 time=5.930 ms
+64 bytes from 104.22.41.171: seq=2 ttl=56 time=5.812 ms
+64 bytes from 104.22.41.171: seq=3 ttl=56 time=5.831 ms
+64 bytes from 104.22.41.171: seq=4 ttl=56 time=6.046 ms
+64 bytes from 104.22.41.171: seq=5 ttl=56 time=6.165 ms
+64 bytes from 104.22.41.171: seq=6 ttl=56 time=6.018 ms
+
+
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[node1] (local) root@192.168.0.8 /app
+
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                          PORTS NAMES
+6692ed1d6ae5   busybox   "ping -c 7 netology.…"   About a minute ago   Exited (0) 59 seconds ago pinger
+
+$ docker rm pinger
+pinger
+[node1] (local) root@192.168.0.8 /app
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                          PORTS     NAMES
+
+$ docker images -a
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+busybox      latest    1a80408de790   4 weeks ago   1.24MB
+alpine       latest    0ac33e5f5afa   6 weeks ago   5.57MB
+
+$ docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:d2b53584f580310186df7a2055ce3ff83cc0df6caacf1e3489bff8cf5d0af5d8
+Deleted: sha256:1a80408de790c0b1075d0a7e23ff7da78b311f85f36ea10098e4a6184c200964
+Deleted: sha256:eb6b01329ebe73e209e44a616a0e16c2b8e91de6f719df9c35e6cdadadbe5965
+[node1] (local) root@192.168.0.8 /app
+
+$ docker images -a
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+alpine       latest    0ac33e5f5afa   6 weeks ago   5.57MB
+[node1] (local) root@192.168.0.8 /app
