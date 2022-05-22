@@ -1,0 +1,50 @@
+Уроки по Node
+https://nodejsdev.ru/doc/express/
+https://metanit.com/web/nodejs/4.5.php
+
+Книги
+https://ru.ug1lib.org/s/Scrum%20?order=year
+
+https://ask-dev.ru/info/9318004/node-dotenv-is-not-working
+
+
+
+https://learn.javascript.ru/object
+https://learn.javascript.ru/modules-intro
+
+https://www.w3schools.com/nodejs/nodejs_filesystem.asp
+
+Все способы перебора массива в JavaScript
+https://habr.com/ru/post/247857/
+
+RabbitMQ for beginners
+https://www.cloudamqp.com/blog/avalanchemq-for-beginners-part-2-getting-started-with-python.html
+
+!!!
+https://www.geeksforgeeks.org/node-js-fs-stat-method/
+https://www.geeksforgeeks.org/node-js-readline-module/
+!!
+https://nodejs.dev/learn/making-http-requests-with-nodejs
+https://nodejs.dev/learn/making-http-requests-with-nodejs
+
+https://stackabuse.com/writing-to-files-in-node-js/
+
+The weatherstack API was
+https://weatherstack.com/documentation
+
+https://codezup.com/node-js-readline-module-example-tutorial/
+http://shpargalkablog.ru/2013/11/add-the-date-js.html
+
+https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html
+
+
+Jest для тестирования JavaScript
+https://russianblogs.com/article/16641579443/
+
+Четыре метода поиска в массивах JavaScript
+https://habr.com/ru/post/247857/
+https://www.digitalocean.com/community/tutorials/js-array-search-methods-ru#find
+
+// methods we can do on the array of objects
+console.log(jungle.find(el => el.threat == 5)); // returns object - {name: "monkey", threat: 5}
+console.log(jungle.filter(el => el.threat > 5)); // returns array - [{name: "gorilla", threat: 8}, {name: 'lion', threat: 10}]
