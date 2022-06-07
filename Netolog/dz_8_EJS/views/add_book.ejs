@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap</title>
+	
+    <!-- Подключаем Bootstrap CSS через CDN -->
+
+    <!-- Подключаем style.css -->
+
+</head>
+<body>
+	
+	<div class="container-fluid color">	    
+	    <h1>Add New Book</h1>
+	</div>	
+
+
+<form method="post" >
+  <div class="form-group">
+    <label for="exampleInputBooks1">Book ID</label>
+    <input type="text" class="form-control" id="exampleInputBook1" name="id" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputBooks2">Book Name</label>
+    <input type="text" class="form-control" id="exampleInputBook2" name="title"
+		aria-describedby="emailHelp" placeholder="Enter email" >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputBooks3">Book description</label>
+    <input type="text" class="form-control" id="exampleInputBook3" name="description"
+	aria-describedby="emailHelp" placeholder="Enter email" >
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" formaction = "/add_book">Add book</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap</title>
+	
+    <!-- Подключаем Bootstrap CSS через CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Подключаем style.css -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<body>
+	
+	<div class="container-fluid color">	    
+	    <h1>Books list</h1>
+	<ul>
+	  <% books.forEach(function (book) { %>
+	  <li>	<%= book.title %>	</li>
+
+	<% }); %>
+	</ul>
+
+	</div>	
+
+</html>

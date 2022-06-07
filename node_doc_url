@@ -48,3 +48,23 @@ https://www.digitalocean.com/community/tutorials/js-array-search-methods-ru#find
 // methods we can do on the array of objects
 console.log(jungle.find(el => el.threat == 5)); // returns object - {name: "monkey", threat: 5}
 console.log(jungle.filter(el => el.threat > 5)); // returns array - [{name: "gorilla", threat: 8}, {name: 'lion', threat: 10}]
+
+
+https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
+
+app.use(express.static('public'));
+
+We will keep a few images in public/images sub-directory as follows -
+
+node_modules
+server.js
+public/
+public/images
+public/images/logo.png
+
+Let's modify "Hello Word" app to add the functionality to handle static files.
+
+var express = require('express');
+var app = express();
+
+app.use(express.static('public'));
